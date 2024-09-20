@@ -1,0 +1,33 @@
+name: Compile Typst and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # メインブランチにプッシュされたときに実行
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Typst
+        run: |
+          curl -LO https://github.com/typst/typst/releases/latest/download/typst-x86_64-unknown-linux-musl.tar.xz
+          tar -xvf typst-x86_64-unknown-linux-musl.tar.xz
+          mv typst-x86_64-unknown-linux-musl/typst /tmp/typst
+          rm -rf typst-x86_64-unknown-linux-musl*
+
+      - name: Compile Typst files
+        run: |
+          /tmp/typst compile main.typ
+          /tmp/typst compile slide.typ
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
+          force_orphan: true

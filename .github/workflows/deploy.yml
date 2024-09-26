@@ -25,8 +25,8 @@ jobs:
         run: |
           mkdir -p ~/.local/share/fonts
           curl -LO https://github.com/trueroad/HaranoAjiFonts/archive/master.tar.gz
-          tar -xzf HaranoAjiFonts-master.tar.gz --strip-components=1 -C ~/.local/share/fonts
-          rm HaranoAjiFonts-master.tar.gz
+          tar -xzf master.tar.gz --strip-components=1 -C ~/.local/share/fonts
+          rm master.tar.gz
 
       - name: Compile Typst files
         run: |

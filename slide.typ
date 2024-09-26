@@ -9,8 +9,7 @@
 #show: stargazer-theme.with(
   aspect-ratio: "16-9",
   config-info(
-    title: [ランベック計算と古典論理と線形文法],
-    subtitle: [線形文法との対応と古典論理への埋め込み],
+    title: [ランベック計算と文脈自由文法・線形文法・正規文法],
     author: [谷口雅弥],
     date: datetime.today(),
     institution: [理化学研究所]

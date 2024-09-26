@@ -17,8 +17,8 @@
 )
 
 // For Japanese
-#set text(font: "Hiragino Kaku Gothic ProN", lang: "ja")
-// #set text(font: "Harano Aji Gothic", lang: "ja")
+// #set text(font: "Hiragino Kaku Gothic ProN", lang: "ja")
+#set text(font: "Harano Aji Gothic", lang: "ja")
 // #set text(font: "Harano Aji Mincho", lang: "ja")
 // #show regex("[\p{scx:Han}\p{scx:Hira}\p{scx:Kana}]"): set text(font: "Noto Serif CJK JP", lang: "ja")
 

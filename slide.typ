@@ -285,33 +285,35 @@ $sans(L)$ は線形言語とする。このとき $exists ell_1; sans(L) = frak(
 ]
 
 
-#outline-colorbox(title: [言語 $==>$ 論理])[
-  #v(5pt)
-  *ベースケース* 長さが 1のとき$a in L_A$とする。
-  対応する文法規則は $A <- a$ である。$ell_1$ は $ell_1(a) = A$ とする。
-  このとき $s in frak(L)(ell_1, bold(L)(slash,backslash), A)$ が成り立つ。
+*言語 $==>$ 論理*
 
-  *帰納ステップ*
-  長さが1より大きいとき、文法規則の形から
-  その文字列は $a overline(w)$  もしくは $overline(w) a$のどちらかに分割される。
+*ベースケース* 
 
-  #v(30pt)
+長さが 1のとき$a in L_A$とする。
+対応する文法規則は $A <- a$ である。$ell_1$ は $ell_1(a) = A$ とする。
+このとき $s in frak(L)(ell_1, bold(L)(slash,backslash), A)$ が成り立つ。
 
-  *帰納ステップ 1* 長さが $n$ のとき、$a overline(w) in L_A$ とする。$overline(w)$ の長さが $n-1$ であるとする。
-  帰納法の仮定から $overline(w) in L_W ==> overline(w) in frak(L)(ell_1,bold(L)(slash,backslash), W)$。
-  対応する文法規則は $A <- a W$ である。$ell_1$ は $ell_1(a) = A slash W$ とする。
-  #tree(
-    myaxi[$[ell_1(overline(w))]=>W$],
-    myaxi[$A=>A$],
-    mybin[$A slash W, [ell_1(overline(w))] => A$],
-    myuni[$[ell_1(a)], [ell_1(overline(w))] => A$],
-    myuni[$[ell_1(a overline( w))] => A$]
-  )
-  したがって、証明図より $a overline(w) in frak(L)(ell_1, bold(L)(slash, backslash), A)$ である。
+*帰納ステップ*
+長さが1より大きいとき、文法規則の形から
+その文字列は $a overline(w)$  もしくは $overline(w) a$のどちらかに分割される。
 
-  *帰納ステップ 2* 長さが $n$ のとき、$overline(w) a in L_A$ とする。$overline(w)$ の長さが $n-1$ であるとする。
-  帰納法の仮定から $overline(w) in L_W ==> overline(w) in frak(L)(ell_1,bold(L)(slash,backslash), W)$。
-  対応する文法規則は $A <- W a$ である。$ell_1$ は $ell_1(a) = W backslash A$ とする。
+*帰納ステップ 1* 長さが $n$ のとき、$a overline(w) in L_A$ とする。$overline(w)$ の長さが $n-1$ であるとする。
+帰納法の仮定から $overline(w) in L_W ==> overline(w) in frak(L)(ell_1,bold(L)(slash,backslash), W)$。
+対応する文法規則は $A <- a W$ である。$ell_1$ は $ell_1(a) = A slash W$ とする。
+#tree(
+  myaxi[$[ell_1(overline(w))]=>W$],
+  myaxi[$A=>A$],
+  mybin[$A slash W, [ell_1(overline(w))] => A$],
+  myuni[$[ell_1(a)], [ell_1(overline(w))] => A$],
+  myuni[$[ell_1(a overline( w))] => A$]
+)
+したがって、証明図より $a overline(w) in frak(L)(ell_1, bold(L)(slash, backslash), A)$ である。
+
+#pagebreak()
+
+*帰納ステップ 2* 長さが $n$ のとき、$overline(w) a in L_A$ とする。$overline(w)$ の長さが $n-1$ であるとする。
+帰納法の仮定から $overline(w) in L_W ==> overline(w) in frak(L)(ell_1,bold(L)(slash,backslash), W)$。
+対応する文法規則は $A <- W a$ である。$ell_1$ は $ell_1(a) = W backslash A$ とする。
 #tree(
   myaxi[$[ell_1(overline(w))]=>W$],
   myaxi[$A=>A$],
@@ -320,33 +322,53 @@ $sans(L)$ は線形言語とする。このとき $exists ell_1; sans(L) = frak(
   myuni[$[ell_1( overline(w) a)] => A$]
 )
 したがって、証明図より $overline(w) a in frak(L)(ell_1, bold(L)(slash, backslash), A)$ である。
-
 $tack.l$
-]
+
 #pagebreak()
 
-#outline-colorbox(title: [論理 $==>$ 言語])[
-#v(5pt)
- *ベースケース* 長さが1のとき $bold(L)(slash,backslash) tack [ell_1(a)] => A$ すなわち $ell_1(a) = A$ である。
+*論理 $==>$ 言語*
+
+ *ベースケース*
+
+ 長さが1のとき $bold(L)(slash,backslash) tack [ell_1(a)] => A$ すなわち $ell_1(a) = A$ である。
  このとき、文法規則 $A <- a$ と置けば $a in L_A$である。
 
  *帰納ステップ* 長さが $n$ のとき文字列 $overline(w)$ を考える。 $[ell_1(overline(w))] => A$ とする。
  このとき、推論規則の形から最下段のシーケントは $A slash W, Gamma => A$ もしくは\ $Gamma, W backslash A => A$ のどちらかである。
 
-#v(0pt)
+#pagebreak()
+
  *帰納ステップ1* $A slash W, Gamma => A$ とする。このとき $A => A$ と $ Gamma => W$ の二つに分け分けられる。
-文字列が $a overline(w)$ の形をしているなら帰納法の仮定から語彙から $overline(w) in L_W$に関する文法規則 $cal(G)$ を作ることができてそれに $A <- a W$を加えることができ $a overline(w) in L_A$
+文字列が $a overline(w)$ の形をしているなら帰納法の仮定から語彙から $overline(w) in L_W$に関する文法規則 $cal(G)$ を作れてそれに $A <- a W$を加えることができ $a overline(w) in L_A$
 
  *帰納ステップ2* $Gamma, W backslash A => A$ とする。このとき $A => A$ と $ Gamma => W$ の二つに分け分けられる。
-文字列が $overline(w) a$ の形をしているなら帰納法の仮定から語彙から $overline(w) in L_W$に関する文法規則 $cal(G)$ を作ることができてそれに $A <- W a$を加えることができ $a overline(w) in L_A$ 
-
+文字列が $overline(w) a$ の形をしているなら帰納法の仮定から語彙から $overline(w) in L_W$に関する文法規則 $cal(G)$ を作れ、それに $A <- W a$を加えることができ $a overline(w) in L_A$
 $tack.l$
-]
 
-したがって以上より、どんな文字列 $overline(w)$ に対しても、$overline(w) in sans(L)_X <==> overline(w) in frak(L)(ell_1, bold(L)(slash,backslash), X)$ である。
+したがってどんな文字列 $overline(w)$ に対しても、$overline(w) in sans(L)_X <==> overline(w) in frak(L)(ell_1, bold(L)(slash,backslash), X)$ である。
 
 
 == 線形文法とランベック計算
+
+#outline-colorbox(title: [定理(言語における導入規則の許容可能性)])[
+#v(5pt)
+言語 $frak(L)(ell_1,L(slash,backslash), S)$において右導入規則は許容可能である。
+#grid(
+  columns: (200pt,) * 3,
+  column-gutter: 50pt,
+  tree(
+    myaxi[$Sigma, alpha => beta$],
+    myuni[$Sigma => beta slash alpha$],
+  ),
+  tree(
+    myaxi[$alpha,Sigma => beta$],
+    myuni[$Sigma => alpha backslash beta$],
+  ),
+)
+つまり、この規則を加えても言語が拡張されることはない。
+]
+
+#pagebreak()
 
 1. $bold(L)(slash,backslash)$ に新たに 右導入規則を加えた普通のランベック計算 $bold(L)$を考える
 2. カットフリーの過程のみを考える
@@ -449,53 +471,81 @@ $sans(L)$ は正規言語とする。このとき $exists ell_(1slash); sans(L) 
 #outline-colorbox(title: [主張])[
  #v(5pt)
 言語 $sans(L)_X$ は正規文法で生成される。ルートとなる非終端記号は$X$である。\
-このとき、$s in L_X <==> s in frak(L)(ell_(1slash),bold(L)(slash), X) $ となる語彙 $ell_(1slash)$が存在する。
+このとき $s in L_X <==> s in frak(L)(ell_(1slash),bold(L)(slash), X) $ となる語彙 $ell_(1slash)$が存在する。
 ]
 
 
-#outline-colorbox(title: [言語 $==>$ 論理])[
-  #v(5pt)
-  *ベースケース* 長さが 1のとき$a in L_A$とする。
-  対応する文法規則は $A <- a$ である。$ell_(1slash)$ は $ell_(1slash)(a) = A$ とする。
-  このとき $s in frak(L)(ell_(1slash), bold(L)(slash), A)$ が成り立つ。
+*言語 $==>$ 論理*
 
-  *帰納ステップ*
-  長さが1より大きいとき、文法規則の形から
-  その文字列は  $a overline(w) in L_A$に分割される。
-  $a overline(w) in L_A$ とする。$overline(w)$ の長さが $n-1$ であるとする。
-  帰納法の仮定から $overline(w) in L_W ==> overline(w) in frak(L)(ell_(1slash),bold(L)(slash), W)$。
-  対応する文法規則は $A <- a W$ である。$ell_(1slash)$ は $ell_(1slash)(a) = A slash W$ とする。
-  #tree(
-    myaxi[$[ell_(1slash)(overline(w))]=>W$],
-    myaxi[$A=>A$],
-    mybin[$A slash W, [ell_(1slash)(overline(w))] => A$],
-    myuni[$[ell_(1slash)(a)], [ell_(1slash)(overline(w))] => A$],
-    myuni[$[ell_(1slash)(a overline( w))] => A$]
-  )
-  したがって、証明図より $a overline(w) in frak(L)(ell_(1slash), bold(L)(slash), A)$ である。
+*ベースケース*
 
-$tack.l$
-]
+長さが 1のとき$a in L_A$とする。
+このとき対応する文法規則は $A <- a$ である。 \
+語彙$ell_(1slash)$ は $ell_(1slash)(a) = A$ とする。
+このとき $s in frak(L)(ell_(1slash), bold(L)(slash), A)$ が成り立つ。
+
 #pagebreak()
 
-#outline-colorbox(title: [論理 $==>$ 言語])[
-#v(5pt)
- *ベースケース* 長さが1のとき $bold(L)(slash) tack [ell_(1slash)(a)] => A$ すなわち $ell_(1slash)(a) = A$ である。
+*帰納ステップ*
+長さが1より大きいとき、このとき文法規則の形から
+その文字列は $a overline(w) in L_A$に分割される。
+$a overline(w) in L_A$ とする。$overline(w)$ の長さが $n-1$ であるとする。
+帰納法の仮定から $overline(w) in L_W ==> overline(w) in frak(L)(ell_(1slash),bold(L)(slash), W)$。
+対応する文法規則は $A <- a W$ である。$ell_(1slash)$ は $ell_(1slash)(a) = A slash W$ とする。
+#tree(
+  myaxi[$[ell_(1slash)(overline(w))]=>W$],
+  myaxi[$A=>A$],
+  mybin[$A slash W, [ell_(1slash)(overline(w))] => A$],
+  myuni[$[ell_(1slash)(a)], [ell_(1slash)(overline(w))] => A$],
+  myuni[$[ell_(1slash)(a overline( w))] => A$]
+)
+したがって、証明図より $a overline(w) in frak(L)(ell_(1slash), bold(L)(slash), A)$ である。
+$tack.l$
+
+#pagebreak()
+
+*論理 $==>$ 言語*
+
+ *ベースケース*
+
+ 長さが1のとき $bold(L)(slash) tack [ell_(1slash)(a)] => A$ すなわち $ell_(1slash)(a) = A$ である。
  このとき、文法規則 $A <- a$ と置けば $a in L_A$である。
 
  *帰納ステップ* 長さが $n$ のとき文字列 $overline(w)$ を考える。 $[ell_(1slash)(overline(w))] => A$ とする。
  このとき、推論規則の形から最下段のシーケントは $A slash W, Gamma => A$である。
-
-#v(0pt)
- *帰納ステップ1* $A slash W, Gamma => A$ とする。このとき $A => A$ と $ Gamma => W$ の二つに分け分けられる。
-文字列が $a overline(w)$ の形をしているなら帰納法の仮定から語彙から $overline(w) in L_W$に関する文法規則 $cal(G)$ を作り、$A <- a W$を加えて $a overline(w) in L_A$
+このとき $A => A$ と $ Gamma => W$ の二つに分け分けられる。
+文字列が $a overline(w)$ の形であり帰納法の仮定から語彙から $overline(w) in L_W$に関する文法規則 $cal(G)$ を作り、$A <- a W$を加えて $a overline(w) in L_A$
 $tack.l$
-]
 
-したがって以上より、どんな文字列 $overline(w)$ に対しても、$overline(w) in sans(L)_X <==> overline(w) in frak(L)(ell_(1slash), bold(L)(slash,backslash), X)$ である。
+したがってどんな文字列 $overline(w)$ に対しても、$overline(w) in sans(L)_X <==> overline(w) in frak(L)(ell_(1slash), bold(L)(slash,backslash), X)$ である。
 
 
 == 正規文法とランベック計算
+
+#outline-colorbox(title: [定理(言語における導入規則の許容可能性)])[
+#v(5pt)
+言語 $frak(L)(ell_1,L(slash), S)$において以下の導入規則は許容可能である。
+#grid(
+  columns: (200pt,) * 3,
+  column-gutter: 50pt,
+  tree(
+    myaxi[$Gamma,alpha,Delta => beta$],
+    myaxi[$Sigma => gamma$],
+    mybin[$Gamma,Sigma,gamma backslash alpha,Delta => beta$]
+  ),
+  tree(
+    myaxi[$Sigma, alpha => beta$],
+    myuni[$Sigma => beta slash alpha$],
+  ),
+  tree(
+    myaxi[$alpha,Sigma => beta$],
+    myuni[$Sigma => alpha backslash beta$],
+  ),
+)
+つまり、これらの規則を加えても言語が拡張されることはない。
+]
+
+#pagebreak()
 
 1. $bold(L)(slash)$ に新たに 右導入規則を加えた普通のランベック計算 $bold(L)$を考える
 2. カットフリーの過程のみを考える
@@ -553,7 +603,6 @@ $tack.l$
   ),
 )
 
-  
 ランベック計算の原子論理式に添字を加えると次の同値関係が導かれる (?)
 
 $

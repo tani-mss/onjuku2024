@@ -179,6 +179,7 @@
 $
 frak(L)(ell, L,s) = {w_1,w_2,dots,w_n | exists [dot]_1,[dot]_2,dots,[dot]_n; L tack [ell(w_1)]_1, [ell(w_2)]_2,dots,[ell(w_n)]_n arrow.r.double s}
 $
+*以降では煩雑さを軽減するために 選択関数の添字を無視する*
 ]
 
 #outline-colorbox(title: [Pentus 1993, 1997])[
@@ -193,7 +194,7 @@ $frak(L)(ell, bold(L),s)$ は文脈自由言語; つまり $sans(L)$は文脈自
 
 == ランベック計算と文脈自由文法の関係
 
-= ランベック計算と線形文法、正規文法
+= ランベック計算と線形文法
 
 #focus-slide[
   論理のはなし
@@ -266,11 +267,11 @@ $frak(L)(ell, bold(L),s)$ は文脈自由言語; つまり $sans(L)$は文脈自
 
 == 式の次数と語彙
 
-#outline-colorbox(title: [線形文法とランベック計算の断片])[
+#outline-colorbox(title: [線形文法とランベック計算の断片 (谷口)])[
   #v(5pt)
 式のうち演算子 $slash, backslash$ の数を式の次数と呼ぶ。\
 語彙 $ell_1$ は 語彙のうち式の次数が高々1のものに限定したものとする。\
-$sans(L)$ は線形言語とする。このとき $exists ell_1; sans(L) = frak(L)(ell_1, L(slash,backslash), S)$
+$sans(L)$ は線形言語とする。このとき $exists ell_1; sans(L) = frak(L)(ell_1, bold(L)(slash,backslash), S)$
 ]
 
 *ランベック計算の断片と制約された語彙* は線形文法である!
@@ -280,7 +281,7 @@ $sans(L)$ は線形言語とする。このとき $exists ell_1; sans(L) = frak(
 #outline-colorbox(title: [主張])[
  #v(5pt)
 言語 $sans(L)_X$ は線形文法で生成される。ルートとなる非終端記号は$X$である。\
-このとき、$s in L_X <==> s in frak(L)(ell_1,L(slash,backslash), X) $ となる語彙 $ell_1$が存在する。
+このとき、$s in L_X <==> s in frak(L)(ell_1,bold(L)(slash,backslash), X) $ となる語彙 $ell_1$が存在する。
 ]
 
 
@@ -288,7 +289,7 @@ $sans(L)$ は線形言語とする。このとき $exists ell_1; sans(L) = frak(
   #v(5pt)
   *ベースケース* 長さが 1のとき$a in L_A$とする。
   対応する文法規則は $A <- a$ である。$ell_1$ は $ell_1(a) = A$ とする。
-  このとき $s in frak(L)(ell_1, L(slash,backslash), A)$ が成り立つ。
+  このとき $s in frak(L)(ell_1, bold(L)(slash,backslash), A)$ が成り立つ。
 
   *帰納ステップ*
   長さが1より大きいとき、文法規則の形から
@@ -297,7 +298,7 @@ $sans(L)$ は線形言語とする。このとき $exists ell_1; sans(L) = frak(
   #v(30pt)
 
   *帰納ステップ 1* 長さが $n$ のとき、$a overline(w) in L_A$ とする。$overline(w)$ の長さが $n-1$ であるとする。
-  帰納法の仮定から $overline(w) in L_W ==> overline(w) in frak(L)(ell_1,L(slash,backslash), W)$。
+  帰納法の仮定から $overline(w) in L_W ==> overline(w) in frak(L)(ell_1,bold(L)(slash,backslash), W)$。
   対応する文法規則は $A <- a W$ である。$ell_1$ は $ell_1(a) = A slash W$ とする。
   #tree(
     myaxi[$[ell_1(overline(w))]=>W$],
@@ -306,10 +307,10 @@ $sans(L)$ は線形言語とする。このとき $exists ell_1; sans(L) = frak(
     myuni[$[ell_1(a)], [ell_1(overline(w))] => A$],
     myuni[$[ell_1(a overline( w))] => A$]
   )
-  したがって、証明図より $a overline(w) in frak(L)(ell_1, L(slash, backslash), A)$ である。
+  したがって、証明図より $a overline(w) in frak(L)(ell_1, bold(L)(slash, backslash), A)$ である。
 
   *帰納ステップ 2* 長さが $n$ のとき、$overline(w) a in L_A$ とする。$overline(w)$ の長さが $n-1$ であるとする。
-  帰納法の仮定から $overline(w) in L_W ==> overline(w) in frak(L)(ell_1,L(slash,backslash), W)$。
+  帰納法の仮定から $overline(w) in L_W ==> overline(w) in frak(L)(ell_1,bold(L)(slash,backslash), W)$。
   対応する文法規則は $A <- W a$ である。$ell_1$ は $ell_1(a) = W backslash A$ とする。
 #tree(
   myaxi[$[ell_1(overline(w))]=>W$],
@@ -318,7 +319,7 @@ $sans(L)$ は線形言語とする。このとき $exists ell_1; sans(L) = frak(
   myuni[$[ell_1(overline(w))], [ell_1(a)] => A$],
   myuni[$[ell_1( overline(w) a)] => A$]
 )
-したがって、証明図より $overline(w) a in frak(L)(ell_1, L(slash, backslash), A)$ である。
+したがって、証明図より $overline(w) a in frak(L)(ell_1, bold(L)(slash, backslash), A)$ である。
 
 $tack.l$
 ]
@@ -326,7 +327,7 @@ $tack.l$
 
 #outline-colorbox(title: [論理 $==>$ 言語])[
 #v(5pt)
- *ベースケース* 長さが1のとき $L(slash,backslash) tack [ell_1(a)] => A$ すなわち $ell_1(a) = A$ である。
+ *ベースケース* 長さが1のとき $bold(L)(slash,backslash) tack [ell_1(a)] => A$ すなわち $ell_1(a) = A$ である。
  このとき、文法規則 $A <- a$ と置けば $a in L_A$である。
 
  *帰納ステップ* 長さが $n$ のとき文字列 $overline(w)$ を考える。 $[ell_1(overline(w))] => A$ とする。
@@ -342,12 +343,12 @@ $tack.l$
 $tack.l$
 ]
 
-したがって以上より、どんな文字列 $overline(w)$ に対しても、$overline(w) in sans(L)_X <==> overline(w) in frak(L)(ell_1, L(slash,backslash), X)$ である。
+したがって以上より、どんな文字列 $overline(w)$ に対しても、$overline(w) in sans(L)_X <==> overline(w) in frak(L)(ell_1, bold(L)(slash,backslash), X)$ である。
 
 
 == 線形文法とランベック計算
 
-1. $L(slash,backslash)$ に新たに 右導入規則を加えた普通のランベック計算 $bold(L)$を考える
+1. $bold(L)(slash,backslash)$ に新たに 右導入規則を加えた普通のランベック計算 $bold(L)$を考える
 2. カットフリーの過程のみを考える
 3. $overline(s) in frak(L)(ell_1, bold(L), S)$ に対応する証明の最下段$sigma$は $[ell_1(w_1)],dots,[ell_1(w_n)]=> S$
 4. $sigma$へ至る証明内での右導入規則を仮定。もっとも下層での右導入規則に注目
@@ -368,10 +369,155 @@ $tack.l$
 11. したがって、 4の仮定が棄却される。
 
 ゆえに $overline(s) in frak(L)(ell_1, bold(L), S)$ において 右導入規則が使われることはなく、
-加えてもその言語が拡張されることはない。つまり $frak(L)(ell_1, bold(L), S) = frak(L)(ell_1, L(slash, backslash), S)$。\
+加えてもその言語が拡張されることはない。つまり $frak(L)(ell_1, bold(L), S) = frak(L)(ell_1, bold(L)(slash, backslash), S)$。\
 言語上で右導入規則は許容可能 (addmissible)である。
 
-= 相談: 古典論理への埋め込み
+= ランベック計算と正規文法
+
+#focus-slide[
+  論理のはなし
+]
+
+== ランベック文法の左断片
+
+#outline-colorbox(title: [ランベック計算の左断片 $bold(L)(slash)$])[
+  #v(5pt)
+  小文字のアルファベットは原子論理式とする。
+  小文字のギリシャ文字は式 ($phi := a | phi slash phi | phi backslash phi$) であり大文字のギリシャ文字は式の列である。推論規則は以下。
+  #grid(
+    columns: (60pt,150pt,150pt,150pt),
+    column-gutter: 50pt,
+    row-gutter: 10pt,
+    tree(
+      myaxi[],
+      myuni[$a => a$]
+    ),
+    tree(
+      myaxi[$Gamma,alpha,Delta => beta$],
+      myaxi[$Sigma => alpha$],
+      mybin[$Gamma,Sigma,Delta => beta$]
+    ),
+    tree(
+      myaxi[$Gamma,alpha,Delta => beta$],
+      myaxi[$Sigma => gamma$],
+      mybin[$Gamma,alpha slash gamma, Sigma,Delta => beta$]
+    ),
+  )
+]
+#outline-colorbox(title: [カット除去定理(Zielonka 1976)の応用])[
+  #v(5pt)
+  $bold(L)(slash) tack Gamma => alpha <==> bold(L)(slash) backslash {"cut"} tack Gamma => alpha$
+]
+
+#outline-colorbox(title: [言語のカット除去定理(谷口))])[
+  #v(5pt)
+  カット除去定理から次が直ちに導かれる。$frak(L)(ell, bold(L)(slash), S) = frak(L)(ell, bold(L)(slash) backslash {"cut"}, S)$
+]
+
+#focus-slide[
+  言語のはなし
+]
+
+== 正規文法
+
+#outline-colorbox(title: "左線形文法")[
+  #v(5pt)
+  $A <- a$, $A <- a B$の形で書かれる文法を左線形文法(正規文法)と呼ぶ。\
+  他の定義もあるが、ここでは標準形として、これを採用する。
+]
+#outline-colorbox(title: "tips: 右線形文法")[
+  #v(5pt)
+  $A <- a$, $A <- B a$の形で書かれる文法を右線形文法(正規文法)と呼ぶ。\
+  これも正規言語を生成する。
+]
+
+#v(-15pt)
+
+== 式の次数と語彙
+
+#outline-colorbox(title: [正規文法とランベック計算の断片(Stepan 2010)])[
+  #v(5pt)
+式のうち演算子 $slash,backslash$ の数を式の次数と呼ぶ。\
+語彙 $ell_(1slash)$ は 語彙のうち $slash$のみを含み次数が高々1のものに限定したものとする。\
+$sans(L)$ は正規言語とする。このとき $exists ell_(1slash); sans(L) = frak(L)(ell_(1slash), bold(L)(slash), S)$
+]
+
+*ランベック計算の左断片と制約された語彙* は正規文法である!
+
+== 正規文法とランベック計算の断片の関係の証明
+
+#outline-colorbox(title: [主張])[
+ #v(5pt)
+言語 $sans(L)_X$ は正規文法で生成される。ルートとなる非終端記号は$X$である。\
+このとき、$s in L_X <==> s in frak(L)(ell_(1slash),bold(L)(slash), X) $ となる語彙 $ell_(1slash)$が存在する。
+]
+
+
+#outline-colorbox(title: [言語 $==>$ 論理])[
+  #v(5pt)
+  *ベースケース* 長さが 1のとき$a in L_A$とする。
+  対応する文法規則は $A <- a$ である。$ell_(1slash)$ は $ell_(1slash)(a) = A$ とする。
+  このとき $s in frak(L)(ell_(1slash), bold(L)(slash), A)$ が成り立つ。
+
+  *帰納ステップ*
+  長さが1より大きいとき、文法規則の形から
+  その文字列は  $a overline(w) in L_A$に分割される。
+  $a overline(w) in L_A$ とする。$overline(w)$ の長さが $n-1$ であるとする。
+  帰納法の仮定から $overline(w) in L_W ==> overline(w) in frak(L)(ell_(1slash),bold(L)(slash), W)$。
+  対応する文法規則は $A <- a W$ である。$ell_(1slash)$ は $ell_(1slash)(a) = A slash W$ とする。
+  #tree(
+    myaxi[$[ell_(1slash)(overline(w))]=>W$],
+    myaxi[$A=>A$],
+    mybin[$A slash W, [ell_(1slash)(overline(w))] => A$],
+    myuni[$[ell_(1slash)(a)], [ell_(1slash)(overline(w))] => A$],
+    myuni[$[ell_(1slash)(a overline( w))] => A$]
+  )
+  したがって、証明図より $a overline(w) in frak(L)(ell_(1slash), bold(L)(slash), A)$ である。
+
+$tack.l$
+]
+#pagebreak()
+
+#outline-colorbox(title: [論理 $==>$ 言語])[
+#v(5pt)
+ *ベースケース* 長さが1のとき $bold(L)(slash) tack [ell_(1slash)(a)] => A$ すなわち $ell_(1slash)(a) = A$ である。
+ このとき、文法規則 $A <- a$ と置けば $a in L_A$である。
+
+ *帰納ステップ* 長さが $n$ のとき文字列 $overline(w)$ を考える。 $[ell_(1slash)(overline(w))] => A$ とする。
+ このとき、推論規則の形から最下段のシーケントは $A slash W, Gamma => A$である。
+
+#v(0pt)
+ *帰納ステップ1* $A slash W, Gamma => A$ とする。このとき $A => A$ と $ Gamma => W$ の二つに分け分けられる。
+文字列が $a overline(w)$ の形をしているなら帰納法の仮定から語彙から $overline(w) in L_W$に関する文法規則 $cal(G)$ を作り、$A <- a W$を加えて $a overline(w) in L_A$
+$tack.l$
+]
+
+したがって以上より、どんな文字列 $overline(w)$ に対しても、$overline(w) in sans(L)_X <==> overline(w) in frak(L)(ell_(1slash), bold(L)(slash,backslash), X)$ である。
+
+
+== 正規文法とランベック計算
+
+1. $bold(L)(slash)$ に新たに 右導入規則を加えた普通のランベック計算 $bold(L)$を考える
+2. カットフリーの過程のみを考える
+3. $overline(s) in frak(L)(ell_(1slash), bold(L), S)$ に対応する証明の最下段$sigma$は $[ell_(1slash)(w_1)],dots,[ell_(1slash)(w_n)]=> S$
+4. $sigma$へ至る証明の内での $backslash$ の 左導入則を仮定する。
+5. 続く証明では以下のケースが考えられる
+  1. そのまま残る (3 によって棄却される)
+  2. カット規則に使われる。(2によって棄却される)
+  3. 導入規則に使われる。
+6. 3の場合 5の議論を続ける。しかし、次数が単調増加し3によって棄却される
+7. よって 4 の仮定は棄却される。
+よって、$bold(L)(slash,backslash)$に膨らましても言語は同じ。\
+さらに、線形文法と同様の議論で$bold(L)$にしても膨らましても同じ。\
+
+== 小まとめ
+
+- ランベック計算 + 無制限の語彙 は 文脈自由文法
+- ランベック計算 + 次数 1 の語彙は 線形文法 (New?)
+- ランベック計算 + 次数1で$slash$のみの語彙は 正規文法
+- ランベック計算 + 次数1で$backslash$のみの語彙は 正規文法 (同様に示せる)
+
+= おまけ: 古典論理への埋め込み (相談)
 
 ランベック計算
 

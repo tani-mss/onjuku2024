@@ -296,7 +296,7 @@ $sans(L)$ は線形言語とする。このとき $exists ell_1; sans(L) = frak(
 
 *ベースケース* 
 長さが 1のとき$a in L_A$とする。
-文法規則は $A <- a$ である。$ell_1$ は $ell_1(a) = A$ とする。
+文法規則は $A <- a$ である。$ell_1$ は $ell_1(a) in.rev A$ とする。
 このとき $s in frak(L)(ell_1, bold(L)(slash,backslash), A)$ が成り立つ。
 
 *帰納ステップ*
@@ -307,7 +307,7 @@ $sans(L)$ は線形言語とする。このとき $exists ell_1; sans(L) = frak(
 #half[
 *帰納ステップ 1* 長さが $n$ のとき、$a overline(w) in L_A$ とする。$overline(w)$ の長さが $n-1$ であるとする。
 帰納法の仮定から $overline(w) in L_W ==> overline(w) in frak(L)(ell_1,bold(L)(slash,backslash), W)$。
-文法規則は $A <- a W$ である。$ell_1$ は $ell_1(a) = A slash W$ とする。
+文法規則は $A <- a W$ である。$ell_1$ は $ell_1(a) in.rev A slash W$ とする。
 #tree(
   myaxi[$[ell_1(overline(w))]=>W$],
   myaxi[$A=>A$],
@@ -321,7 +321,7 @@ $sans(L)$ は線形言語とする。このとき $exists ell_1; sans(L) = frak(
 #half[
 *帰納ステップ 2* 長さが $n$ のとき、$overline(w) a in L_A$ とする。$overline(w)$ の長さは $n-1$ である。
 帰納法の仮定から $overline(w) in L_W ==> overline(w) in frak(L)(ell_1,bold(L)(slash,backslash), W)$。
-文法規則は $A <- W a$ である。$ell_1$ は $ell_1(a) = W backslash A$ とする。
+文法規則は $A <- W a$ である。$ell_1$ は $ell_1(a) in.rev W backslash A$ とする。
 #tree(
   myaxi[$[ell_1(overline(w))]=>W$],
   myaxi[$A=>A$],
@@ -338,7 +338,7 @@ $tack.l$
 
 #half[
  *ベースケース*
- 長さが1で $bold(L)(slash,backslash) tack [ell_1(a)] => A$ \ すなわち $ell_1(a) = A$ である。
+ 長さが1で $bold(L)(slash,backslash) tack [ell_1(a)] => A$ \ すなわち $ell_1(a) in.rev A$ である。
  このとき、文法規則 を$A <- a$ と置けば $a in L_A$である。
 
  *帰納ステップ* 長さが $n$ のとき文字列 $overline(w)$ を考える。 $[ell_1(overline(w))] => A$ とする。
@@ -498,7 +498,7 @@ $sans(L)$ は正規言語とする。このとき $exists ell_(1slash); sans(L) 
 #half[
 *ベースケース* 長さが 1のとき$a in L_A$とする。\ 
 このとき対応する文法規則は $A <- a$ である。 \
-語彙$ell_(1slash)$ は $ell_(1slash)(a) = A$ とする。\ 
+語彙$ell_(1slash)$ は $ell_(1slash)(a) in.rev A$ とする。\ 
 このとき $s in frak(L)(ell_(1slash), bold(L)(slash), A)$ が成り立つ。
 ]
 
@@ -510,7 +510,7 @@ $sans(L)$ は正規言語とする。このとき $exists ell_(1slash); sans(L) 
 $a overline(w) in L_A$に分割される。
 $a overline(w) in L_A$ で $overline(w)$ の長さが $n-1$ である。\ 
 仮定から $overline(w) in L_W ==> overline(w) in frak(L)(ell_(1slash),bold(L)(slash), W)$。\
-対応する文法規則は $A <- a W$ である。\ $ell_(1slash)$ は $ell_(1slash)(a) = A slash W$ とする。
+対応する文法規則は $A <- a W$ である。\ $ell_(1slash)$ は $ell_(1slash)(a) in.rev A slash W$ とする。
 #tree(
   myaxi[$[ell_(1slash)(overline(w))]=>W$],
   myaxi[$A=>A$],
@@ -528,7 +528,7 @@ $tack.l$
 
 #half[
  *ベースケース*
- 長さが1 で $bold(L)(slash) tack [ell_(1slash)(a)] => A$ \ すなわち $ell_(1slash)(a) = A$ である。
+ 長さが1 で $bold(L)(slash) tack [ell_(1slash)(a)] => A$ \ すなわち $ell_(1slash)(a) in.rev A$ である。
  このとき、文法規則を $A <- a$ と置けば $a in L_A$である。
 ]
 #pagebreak()
